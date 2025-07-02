@@ -10,33 +10,39 @@
 
 	</div>
 	<script>
-		/*lista=[
-  {
-    "nombre": "Juan Pérez",
-    "edad": 30,
-    "ciudad": "Monterrey"
-  },
-  {
-    "nombre": "María García",
-    "edad": 25,
-    "ciudad": "Guadalajara"
-  },
-  {
-    "nombre": "Carlos López",
-    "edad": 35,
-    "ciudad": "Ciudad de México"
-  }
-]
-localStorage.setItem("datos",JSON.stringify(lista));*/
-		/*lst=localStorage.getItem("datos");*/
-		lst=JSON.parse(localStorage.getItem("datos"));
-		/*console.log(typeof(lst));*/
-		lst.forEach(element=>{
-			let elements=document.getElementById("listado");
-			let div=document.createElement("div");
-			div.innerHTML=element.nombre + " "+element.edad + ", "+element.ciudad;
-			elements.appendChild(div);
-		});
+		// Uncomment this section to save the data to localStorage
+		lista=[
+			{
+				"nombre": "Juan Pérez",
+				"edad": 30,
+				"ciudad": "Monterrey"
+			},
+			{
+				"nombre": "María García",
+				"edad": 25,
+				"ciudad": "Guadalajara"
+			},
+			{
+				"nombre": "Carlos López",
+				"edad": 35,
+				"ciudad": "Ciudad de México"
+			}
+		]
+		localStorage.setItem("datos",JSON.stringify(lista));
+
+		let lst = JSON.parse(localStorage.getItem("datos"));
+
+		// Add a check to ensure 'lst' is not null before trying to iterate
+		if (lst) {
+			lst.forEach(element => {
+				let elements = document.getElementById("listado");
+				let div = document.createElement("div");
+				div.innerHTML = element.nombre + " " + element.edad + ", " + element.ciudad;
+				elements.appendChild(div);
+			});
+		} else {
+			console.log("No data found in localStorage for 'datos'.");
+		}
 	</script>
 </body>
 </html>
