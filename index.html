@@ -33,16 +33,12 @@
 		let lst = JSON.parse(localStorage.getItem("datos"));
 
 		// Add a check to ensure 'lst' is not null before trying to iterate
-		if (lst) {
 			lst.forEach(element => {
 				let elements = document.getElementById("listado");
 				let div = document.createElement("div");
 				div.innerHTML = element.nombre + " " + element.edad + ", " + element.ciudad;
 				elements.appendChild(div);
 			});
-		} else {
-			console.log("No data found in localStorage for 'datos'.");
-		}
 	</script>
 </body>
 </html>
